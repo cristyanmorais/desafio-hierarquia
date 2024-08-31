@@ -1,0 +1,28 @@
+{
+  "animais": {
+    "mamíferos": {
+      "carnívoros": {
+        "felinos": {
+          "leões": {},
+          "tigres": {},
+          "jaguares": {},
+          "leopardos": {}
+        }
+      }
+    },
+    "aves": {
+      "rapinas": {
+        "águias": {},
+        "falcões": {},
+        "corujas": {},
+        "milhafres": {}
+      },
+      "pássaros": {
+        "canários": {},
+        "papagaios": {},
+        "pardais": {},
+        "rouxinóis": {}
+      }
+    }
+  }
+}
