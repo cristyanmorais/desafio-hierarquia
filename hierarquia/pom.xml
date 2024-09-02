@@ -9,7 +9,7 @@
         <relativePath/> <!-- lookup parent from repository -->
     </parent>
     <groupId>com.desafio</groupId>
-    <artifactId>hierarquia</artifactId>
+    <artifactId>cli</artifactId>
     <version>0.0.1-SNAPSHOT</version>
     <name>hierarquia</name>
     <description>hierarquia</description>
@@ -53,6 +53,9 @@
             <plugin>
                 <groupId>org.springframework.boot</groupId>
                 <artifactId>spring-boot-maven-plugin</artifactId>
+                <configuration>
+                    <finalName>cli</finalName>
+                </configuration>
             </plugin>
         </plugins>
     </build>
