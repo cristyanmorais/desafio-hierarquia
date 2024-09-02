@@ -10,39 +10,47 @@ palavras pode ter subcategorias, semelhante a uma árvore de classificação. A 
 deve ser representada em um arquivo json na pasta dicts/.
 
 # Exemplo de Estrutura:
-● Animais
-  ○ Mamíferos
-    ■ Carnívoros
-      ● Felinos
-        ○ Leões
-        ○ Tigres
-        ○ Jaguars
-        ○ Leopardos
-    ■ Herbívoros
-      ● Equídeos
-        ○ Cavalos
-        ○ Zebras
-        ○ Asnos
-    ■ Bovídeos
-      ● Bois
-      ● Búfalos
-      ● Antílopes
-      ● Cabras
-    ■ Primatas
-      ● Gorilas
-      ● Chimpanzés
-      ● Orangotangos
-  ○ Aves
-    ■ Rapinas
-      ● Águias
-      ● Falcões
-      ● Corujas
-      ● Milhafres
-    ■ Pássaros
-      ● Canários
-      ● Papagaios
-      ● Pardais
-      ● Rouxinóis
+## Animais
+
+### Mamíferos
+
+- **Carnívoros**
+  - *Felinos*
+    - Leões
+    - Tigres
+    - Jaguars
+    - Leopardos
+
+- **Herbívoros**
+  - *Equídeos*
+    - Cavalos
+    - Zebras
+    - Asnos
+
+  - *Bovídeos*
+    - Bois
+    - Búfalos
+    - Antílopes
+    - Cabras
+
+  - *Primatas*
+    - Gorilas
+    - Chimpanzés
+    - Orangotangos
+
+### Aves
+
+- **Rapinas**
+  - Águias
+  - Falcões
+  - Corujas
+  - Milhafres
+
+- **Pássaros**
+  - Canários
+  - Papagaios
+  - Pardais
+  - Rouxinóis
 
 # Desenvolvimento da CLI
 Comando para analisar uma frase
