@@ -142,10 +142,6 @@ public class HierarquiaApplication implements CommandLineRunner {
         }
         return false;
     }
-
-    private void verboseMetrics() {
-
-    }
 }
 
 
