@@ -6,6 +6,7 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 
 import java.io.File;
+import java.text.DecimalFormat;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -18,18 +19,21 @@ public class HierarquiaApplication implements CommandLineRunner {
 
     @Override
     public void run(String... args) throws Exception {
+//      Início da medição do tempo de carregamento dos parâmetros
+        long startParamsTime = System.nanoTime();
+
 //      Verificação do comando
         if (args.length == 0) {
             System.out.println("Uso: java -jar target/cli.jar analyze -depth <n> -verbose (opcional) \"<phrase>\"");
             return;
         } else if ("analyze".equalsIgnoreCase(args[0])) {
-            processAnalyze(args);
+            processAnalyze(args, startParamsTime);
         } else {
             System.out.println("Use o comando 'analyze'!");
         }
     }
 
-    private void processAnalyze(String[] args) {
+    private void processAnalyze(String[] args, long startParamsTime) {
         int depth = 0;
         boolean verbose = false;
         String phrase = "";
@@ -39,6 +43,7 @@ public class HierarquiaApplication implements CommandLineRunner {
             switch (args[i]) {
                 case "-depth":
                     depth = Integer.parseInt(args[i + 1]);
+                    i++;
                     break;
                 case "-verbose":
                     verbose = true;
@@ -50,6 +55,7 @@ public class HierarquiaApplication implements CommandLineRunner {
         }
 
         phrase = phrase.trim();
+        double loadParamsTime = (System.nanoTime() - startParamsTime) / 1_000_000.0;
 
         Map<String, Object> hierarchy = loadHierarchy();
 
@@ -60,7 +66,15 @@ public class HierarquiaApplication implements CommandLineRunner {
         if (depth < 1 || phrase.isEmpty()) {
             System.out.println("Uso: java -jar target/cli.jar analyze -depth <n> -verbose (opcional) \"<phrase>\"");
         } else {
+            long startPhraseTime = System.nanoTime();
             analyzePhrase(depth, verbose, phrase, hierarchy);
+            double loadPhraseTime = (System.nanoTime() - startPhraseTime) / 1_000_000.0;
+
+            if (verbose) {
+                DecimalFormat df = new DecimalFormat("0.00"); // Formato para duas casas decimais
+                System.out.println("Tempo de carregamento dos parâmetros: " + df.format(loadParamsTime) + "ms");
+                System.out.println("Tempo de verificação da frase: " + df.format(loadPhraseTime) + "ms");
+            }
         }
     }
 
