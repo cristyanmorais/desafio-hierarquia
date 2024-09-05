@@ -4,6 +4,9 @@ import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import styles from './HomePage.module.css';
 
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
+import { faDownload } from '@fortawesome/free-solid-svg-icons';
+
 const HomePage: React.FC = () => {
   const [hierarchy, setHierarchy] = useState<any>({});
   const [levels, setLevels] = useState<any[]>([]);
@@ -11,10 +14,6 @@ const HomePage: React.FC = () => {
   useEffect(() => {
     getHierarchy();
   }, []);
-
-  useEffect(() => {
-    console.log(hierarchy);
-  }, [hierarchy]);
 
   const addSubLevel = (parentLevel: any, parentKey: string) => {
     const newLevelName = prompt("Digite o nome do novo nível:");
@@ -72,8 +71,7 @@ const HomePage: React.FC = () => {
         {Object.entries(data).map(([key, value]) => (
           <li key={key}>
             <div className={styles.node}>
-              <strong>{key}</strong>
-              <button onClick={() => addSubLevel(data, key)}>Adicionar Subnível</button>
+              <button onClick={() => addSubLevel(data, key)}>{key}</button>
             </div>
             {renderHierarchy(value)}
           </li>
@@ -84,23 +82,15 @@ const HomePage: React.FC = () => {
 
   return (
     <div className={styles.container}>
-      <h1>Gerenciador de Hierarquia de Palavras</h1>
+      <h1>Hierarquia de Palavras</h1>
 
       <div>
-        <h2>Hierarquia Adicionada:</h2>
-        {levels.map((level, index) => (
-          <div key={index}>
-            <p>{level.name}</p>
-          </div>
-        ))}
+        {renderHierarchy(hierarchy)}
       </div>
 
-      <button onClick={saveHierarchy}>Salvar Hierarquia</button>
-      <button onClick={downloadHierarchy}>Baixar Hierarquia</button>
-
-      <div>
-        <h2>Hierarquia Salva (JSON):</h2>
-        {renderHierarchy(hierarchy)}
+      <div className={styles.buttons}>
+        <button className={styles.savebtn} onClick={saveHierarchy}>Salvar</button>
+        <button className={styles.dwbtn} onClick={downloadHierarchy}><FontAwesomeIcon icon={faDownload} /></button>
       </div>
     </div>
   );
