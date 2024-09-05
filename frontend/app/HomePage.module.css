@@ -1,0 +1,47 @@
+/* HomePage.module.css */
+.container {
+    padding: 20px;
+  }
+  
+  .hierarchy {
+    list-style-type: none;
+    position: relative;
+    padding-left: 20px;
+  }
+  
+  .hierarchy li {
+    margin-left: 10px;
+    padding-left: 20px;
+    line-height: 2em;
+    position: relative;
+  }
+  
+  .hierarchy li::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: -10px;
+    width: 10px;
+    height: 100%;
+    border-left: 1px solid #ccc; /* Linha vertical */
+  }
+  
+  .hierarchy li::after {
+    content: '';
+    position: absolute;
+    top: 1em;
+    left: -10px;
+    width: 20px;
+    height: 1px;
+    border-top: 1px solid #ccc; /* Linha horizontal */
+  }
+  
+  .node {
+    display: flex;
+    align-items: center;
+  }
+  
+  .node button {
+    margin-left: 10px;
+  }
+  
