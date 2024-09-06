@@ -59,9 +59,11 @@ Analisa a frase fornecida e exibe uma tabela com a contagem de palavras no níve
 profundidade especificado.
 
 Parâmetros
+
 --depth: Nível de profundidade da árvore para o qual exibir a contagem.
 "{phrase}": Texto a ser analisado.
 --verbose (opcional): Caso seja informado, exibe uma tabela no stdout com as seguintes métricas:
+
 Tempo de carregamento dos parâmetros (ms).
 Tempo de verificação da frase (ms).
     
