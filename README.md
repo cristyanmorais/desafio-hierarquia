@@ -58,26 +58,26 @@ syntax: java -jar cli.jar analyze –depth <n> –verbose (optional) “{phrase}
 Analisa a frase fornecida e exibe uma tabela com a contagem de palavras no nível de
 profundidade especificado.
 Parâmetros:
-  ● –depth <n>: Nível de profundidade da árvore para o qual exibir a contagem
-  ● “{phrase}” texto a ser analisado
-  ● –verbose: Caso seja informado deve exibir uma tabela no stdout com as seguintes
+● –depth <n>: Nível de profundidade da árvore para o qual exibir a contagem
+● “{phrase}” texto a ser analisado
+● –verbose: Caso seja informado deve exibir uma tabela no stdout com as seguintes
 métricas:
-    ○ Tempo de carregamento dos parâmetros (ms)
-    ○ Tempo de verificação da frase (ms)
+○ Tempo de carregamento dos parâmetros (ms)
+○ Tempo de verificação da frase (ms)
     
 # Exemplo de execução
 Exemplo 1: Possui uma correspondência e está utilizando todos os parâmetros.
-comando: java -jar cli.jar analyze --depth 2 "Eu amo papagaios" --verbose
+comando: java -jar cli.jar analyze -depth 2 "Eu amo papagaios" -verbose
 output: Aves = 1 (Uma ave foi mencionada)
 Tempo de carregamento dos parâmetros 50ms
 Tempo de verificação da frase 10ms
 
 Exemplo 2: Possui duas correspondências.
-comando: java -jar cli.jar analyze --depth 3 "Eu vi gorilas e papagaios"
+comando: java -jar cli.jar analyze -depth 3 "Eu vi gorilas e papagaios"
 output: Pássaros = 1; Primatas = 1;
 
 Exemplo 3: Não possui correspondência.
-comando: java -jar cli.jar analyze --depth 5 "Eu tenho preferência por animais carnívoros"
+comando: java -jar cli.jar analyze -depth 5 "Eu tenho preferência por animais carnívoros"
 output: 0;
 Na frase não existe nenhum filho do nível 5 e nem o nível 5 possui os termos especificados.
 
