@@ -57,13 +57,13 @@ Comando para analisar uma frase
 syntax: java -jar cli.jar analyze –depth <n> –verbose (optional) “{phrase}”
 Analisa a frase fornecida e exibe uma tabela com a contagem de palavras no nível de
 profundidade especificado.
-Parâmetros:
-● –depth <n>: Nível de profundidade da árvore para o qual exibir a contagem
-● “{phrase}” texto a ser analisado
-● –verbose: Caso seja informado deve exibir uma tabela no stdout com as seguintes
-métricas:
-○ Tempo de carregamento dos parâmetros (ms)
-○ Tempo de verificação da frase (ms)
+
+Parâmetros
+--depth: Nível de profundidade da árvore para o qual exibir a contagem.
+"{phrase}": Texto a ser analisado.
+--verbose (opcional): Caso seja informado, exibe uma tabela no stdout com as seguintes métricas:
+Tempo de carregamento dos parâmetros (ms).
+Tempo de verificação da frase (ms).
     
 # Exemplo de execução
 Exemplo 1: Possui uma correspondência e está utilizando todos os parâmetros.
